@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.di.AppContainer
-import com.example.myapplication.presentation.GrupoFarmacologicoViewModel
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val appContainer = AppContainer()
-            App2(appContainer)
+           app(appContainer)
         }
     }
 }

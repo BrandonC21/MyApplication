@@ -5,6 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import com.example.myapplication.di.AppContainer
+import jdk.internal.vm.ThreadContainers.container
 
 
 fun main() = application {
@@ -23,5 +24,6 @@ fun main() = application {
 @Preview(showBackground = true)
 @Composable
 fun AppAndroidPreview() {
-    app()
+    val container = AppContainer()
+    App2(container)
 }

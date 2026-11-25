@@ -9,6 +9,6 @@ class BuscarMedicamentoUseCase (
     suspend operator fun invoke(
         nombre: String
     ): List<Medicamento>{
-        return repository.obtenerPorNombreGen(nombre)
+        return repository.obtenerPorNombreGen(nombre.trim())
     }
 }

@@ -8,6 +8,6 @@ import com.example.myapplication.di.AppContainer
 fun main() {
     ComposeViewport {
         val appContainer = AppContainer()
-        App2(appContainer)
+        app(appContainer)
     }
 }

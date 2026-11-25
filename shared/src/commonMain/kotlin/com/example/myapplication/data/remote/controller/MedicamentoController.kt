@@ -1,9 +1,11 @@
 package com.example.myapplication.data.remote.controller
 
+import com.example.myapplication.config.SupabaseProvider.supabase
 import com.example.myapplication.data.remote.dto.MedicamentoDTO
+import com.example.myapplication.data.remote.dto.MedicamentoSintomaDTO
 import io.github.jan.supabase.SupabaseClient
-import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.rpc
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 

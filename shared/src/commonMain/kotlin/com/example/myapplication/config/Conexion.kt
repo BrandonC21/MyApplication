@@ -14,4 +14,6 @@ object SupabaseProvider {
             install(Auth)
         }
     }
+
+    //Conexion de la api
 }

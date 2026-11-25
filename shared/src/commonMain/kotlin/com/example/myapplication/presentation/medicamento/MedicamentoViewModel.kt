@@ -5,15 +5,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.domain.model.Medicamento
 import com.example.myapplication.domain.usecase.BuscarMedicamentoUseCase
+import com.example.myapplication.domain.usecase.GetProductosFarmaciaUseCase
 import com.example.myapplication.domain.usecase.ObtenerMedicamentosUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MedicamentoViewModel (
     private val buscarMedicamentoGen: BuscarMedicamentoUseCase,
-    private val obtenerMedicamentos: ObtenerMedicamentosUseCase
+    private val obtenerMedicamentos: ObtenerMedicamentosUseCase,
+    private val getProductosFarmaciaUseCase: GetProductosFarmaciaUseCase
 ): ViewModel(){
     private val _uiState = MutableStateFlow(MedicamentoUiState())
 
@@ -121,4 +124,32 @@ class MedicamentoViewModel (
             medicamentoSeleccionado = null
         )
     }
+
+    fun buscarProductoPorNombre(nombre: String) {
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(cargando = true, error = null)
+            }
+            getProductosFarmaciaUseCase(nombre)
+                .onSuccess { lista ->
+                    _uiState.update {
+                        it.copy(
+                            cargando = false,
+                            productos = lista
+                        )
+                    }
+                }
+                .onFailure { e ->
+                    _uiState.update {
+                        it.copy(
+                            cargando = false,
+                            error = e.message ?: "Error al obtener productos"
+                        )
+                    }
+                }
+        }
+    }
+
+
+
 }
