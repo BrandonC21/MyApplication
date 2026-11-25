@@ -7,11 +7,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class SintomaViewModel(
+class SintomasViewModel(
     private val buscarMedicamentoPorSintoma: BuscarMedicamentoPorSintomaUseCase
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(SintomaUiState())
+    private val _uiState = MutableStateFlow(SintomasUiState())
     val uiState = _uiState.asStateFlow()
 
     fun buscarPorSintoma(sintoma: String) {

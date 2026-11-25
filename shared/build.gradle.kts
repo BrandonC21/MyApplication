@@ -45,6 +45,8 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.uiTooling)
             implementation("io.ktor:ktor-client-okhttp:3.0.0")
+
+
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -55,11 +57,16 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
-
             // 2. Limpiada la dependencia duplicada de postgrest-kt
             implementation(project.dependencies.platform("io.github.jan-tennert.supabase:bom:3.0.0"))
             implementation("io.github.jan-tennert.supabase:postgrest-kt")
             implementation("io.ktor:ktor-client-core:3.0.0")
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.1")
+            implementation(compose.materialIconsExtended)
+            implementation("io.coil-kt.coil3:coil-compose:3.6.3")
+            implementation("io.coil-kt.coil3:coil-network-ktor3:3.6.3")
+
+            
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

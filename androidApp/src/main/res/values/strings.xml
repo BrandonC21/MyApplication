@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyApplication</string>
+    <string name="Requiere_receta">Sí</string>
+    <string name="No_Requiere_Receta">No</string>
 </resources>

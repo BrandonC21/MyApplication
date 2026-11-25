@@ -11,6 +11,6 @@ class BuscarMedicamentoPorSintomaUseCase(
         sintoma: String
     ): List<MedicamentoSintoma> {
 
-        return repository.buscarMedicamentosPorSintoma(sintoma)
+        return repository.buscarMedicamentosPorSintoma(sintoma.trim())
     }
 }
